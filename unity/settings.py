@@ -73,7 +73,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'unity',
+    'games',
     'bootstrap3',
     'bootstrap4',
     'tinymce',
