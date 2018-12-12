@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse,Http404,HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
-from .models import *
+from .models import Game
 from .email import *
 from .forms import *
 from decouple import config,Csv
@@ -19,5 +19,7 @@ from rest_framework.views import APIView
 
 # Create your views here.
 def index(request):
+    games = Game.objects.all()
 
-    return render(request,'index.html')
+
+    return render(request,'index.html',{"games":games})

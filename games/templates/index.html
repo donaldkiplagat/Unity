@@ -33,7 +33,7 @@
       <div class=" card-game" style="width:18rem;height:25rem;">
         <img class="card-img-top dark" src="{% static 'img/titanfall.jpg'%}" style="width:18rem;height:25rem;">
         <div class="centered">
-          <h4 class="game-name">Titanfall</h4>
+          <h4 class="game-name">Titanfall 2</h4>
         </div>
       </div>
     </a>
@@ -244,6 +244,12 @@
   </tbody>
 </table>
 
+<br><br>
+{% for game in games %}
+  <h3>{{game.name}}</h3>
+  <a href="{{game.document.url}}">Download</a>
+  127.0.0.1:8000{{game.document.url}}
+{% endfor %}
 
 
 
