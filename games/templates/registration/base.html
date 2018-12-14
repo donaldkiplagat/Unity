@@ -1,0 +1,44 @@
+{% load bootstrap3 %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    {% if title %}
+    <title>{{title}}</title>
+    {% else %}
+    <title>Gaming Site</title>
+    {% endif %}
+
+    {% block styles %}
+    {% bootstrap_css %}
+    <!-- <link rel="stylesheet" href="{% static 'css/navbar.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'css/base2.css' %}">
+    {% endblock %}
+
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/alienware.png' %}">
+
+  </head>
+  <body>
+
+    {% block content %}
+
+    {% endblock %}
+
+    {% block scripts %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    {% bootstrap_javascript %}
+    {% endblock %}
+  </body>
+  <style>
+    body{
+    background-color: #f4f7f6;
+    /* background-image: url(../img/background.jpg); */
+    background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url("{% static 'img/batman.jpg'%}") fixed;
+    background-position: 50% 50%;
+  }
+  </style>
+</html>

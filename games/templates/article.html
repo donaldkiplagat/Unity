@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+
+{% block content %}
+
+<div class="container">
+  <div class="row top">
+    <div class="col-md-12"></div>
+  </div>
+
+
+  <div class="card" style="width: 70rem;">
+    <h5 class="card-title">{{news.title}}</h5>
+    <img class="card-img-top" src="{{news.news_pic.url}}" >
+    <div class="card-body">
+    <p class="card-text">{{news.news | safe}}</p>
+    <p class="card-text">{{news.news | safe}}</p>
+
+  </div>
+  <div class="card-footer">
+    {% if comments%}
+    <h4 class="text-center">Comments</h4>
+      {% for comment in comments %}
+      <p>
+        <strong>{{comment.user.username}}</strong> {{comment.comment}}
+      </p>
+      {% endfor %}
+
+    {%else %}
+    <h3 class="text-center">No comments made for this blog post yet</h3>
+    <hr>
+    {% endif %}
+
+    <form  action="/view/article/{{news.id}}" method="post" enctype="multipart/form-data">
+      {%csrf_token%}
+
+      {% bootstrap_form form%}
+      <div class="text-center">
+      <input id="votes-input"type="submit" class="btn btn-success btn-lg" value="Post">
+    </div>
+    </form>
+  </div>
+</div>
+
+</div>
+
+<style>
+.top{
+  margin-top: 10px;
+}
+h5{
+  font-size: 30px;
+  text-align: center;
+}
+h6{
+  text-align: center;
+}
+label{
+  display: none;
+}
+body{
+  color:black;
+}
+</style>
+{% endblock %}

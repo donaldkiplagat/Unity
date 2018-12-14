@@ -1,0 +1,152 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load staticfiles %}
+
+{% block content %}
+
+<br>
+<div class="container">
+
+
+  <div class="text-center game-name">
+    <h1>Game Trailers</h1>
+  </div>
+  <div class="row">
+    <div class="col-col-md-6">
+      <!-- <h3 class="game-name">Battlefield 5</h3 class="game-name"> -->
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/fb1MR85XFOc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <div class="col-md-6">
+      <!-- <h3 class="game-name">Forza Horizon 4</h3 class="game-name"> -->
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/zJ477xAIlgU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <!-- <h3 class="game-name">Titanfall 2</h3 class="game-name"> -->
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/N1vqjJRcCzg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <div class="col-md-6">
+      <!-- <h3 class="game-name">Mortal Kombat 11</h3 class="game-name"> -->
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/bxFoRCvEjUA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <!-- <h3 class="game-name">Star Wars Battlefront II</h3 class="game-name"> -->
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/ZwWLns7-xN8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+
+      <div class="col-md-6">
+        {% for trailer in trailers %}
+        <!-- <h3 class="game-name">Halo 5</h3 class="game-name"> -->
+        {{trailer.trailer|safe}}
+        <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/44oJi5w2Wjc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+        {% endfor %}
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+<style>
+.landingpage{
+  width:100%;
+  height:1000px;
+  position: relative;
+  text-align: center;
+}
+.landingpage-img{
+    width:100%;
+    filter: brightness(35%);
+}
+.header{
+  color:white;
+  position: absolute;
+  top:50%;
+  left: 50%;
+  display: flex;
+  transform: translate(-50%, -50%);
+  font-weight: bold;
+}
+.page-body{
+  color:white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#caraousel-name{
+  font-family: 'Julius Sans One', sans-serif;
+  font-size: 70px;
+  font-weight: 500 ;
+}
+#vision{
+  font-family: 'Nixie One', cursive;
+  font-size: 40px;
+  font-weight:300;
+}
+.explore-button{
+  font-family: 'Antic Slab', serif;
+  font-size: 20px;
+}
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.card-game {
+  position: relative;
+  overflow: hidden;
+}
+.card-game img {
+  filter: brightness(50%);
+  max-width: 100%;
+  -moz-transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+.card-game:hover img {
+  -moz-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  filter: brightness(40%);
+}
+.game-name{
+  color:white;
+  font-family: 'Julius Sans One', sans-serif;
+  font-weight: bold;
+}
+.releases-caraousel{
+  height:500px;
+}
+.news-body{
+  color:black;
+}
+.news-title{
+  color:black
+}
+.date{
+  color:royalblue;
+  line-height: 0;
+}
+.card-news{
+  background-color:aliceblue;
+
+}
+</style>
+{% endblock %}
+
+font-family: 'Saira', sans-serif;
+font-family: 'Julius Sans One', sans-serif;
+font-family: 'Antic Slab', serif;
+font-family: 'Della Respira', serif;
+font-family: 'Frank Ruhl Libre', serif;
+font-family: 'Nixie One', cursive;

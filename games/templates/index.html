@@ -28,9 +28,9 @@
   </div>
 
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
     <a href="#">
-      <div class=" card-game" style="width:18rem;height:25rem;">
+      <div class="card card-game" style="width:18rem;height:25rem;">
         <img class="card-img-top dark" src="{% static 'img/titanfall.jpg'%}" style="width:18rem;height:25rem;">
         <div class="centered">
           <h4 class="game-name">Titanfall 2</h4>
@@ -40,7 +40,7 @@
 
   </div>
 
-  <div class="col-md-4">
+  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
     <a href="#">
       <div class="card card-game" style="width:18rem;height:25rem;">
         <img class="card-img-top dark" src="{% static 'img/battlefield5.jpg'%}" style="width:18rem;height:25rem;">
@@ -51,7 +51,7 @@
     </a>
   </div>
 
-  <div class="col-md-4">
+  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
     <a href="#">
       <div class="card card-game" style="width:18rem;height:25rem;">
         <img class="card-img-top dark" src="{% static 'img/payback.jpg'%}" style="width:18rem;height:25rem;">
@@ -65,19 +65,21 @@
 <br>
 
 <div class="row">
-  <div class="col-md-4">
+  {% for game in games%}
+  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
     <a href="#">
       <div class="card card-game" style="width:18rem;height:25rem;">
-        <img class="card-img-top dark" src="{% static 'img/fifa.jpg'%}" style="width:18rem;height:25rem;">
+        <img class="card-img-top dark" src="{{game.game_cover.url}}" style="width:18rem;height:25rem;">
         <div class="centered">
-          <h4 class="game-name">Fifa 19</h4>
+          <h4 class="game-name">{{game.name}}</h4>
         </div>
       </div>
     </a>
 
   </div>
+  {% endfor %}
 
-  <div class="col-md-4">
+  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
     <a href="#">
       <div class="card card-game" style="width:18rem;height:25rem;">
         <img class="card-img-top dark" src="{% static 'img/mk.jpg'%}" style="width:18rem;height:25rem;">
@@ -88,7 +90,7 @@
     </a>
   </div>
 
-  <div class="col-md-4">
+  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
     <a href="#">
       <div class="card card-game" style="width:18rem;height:25rem;">
         <img class="card-img-top dark" src="{% static 'img/red.jpeg'%}" style="width:18rem;height:25rem;">
@@ -98,6 +100,7 @@
       </div>
     </a>
   </div>
+
 </div>
 
 <br>
@@ -152,27 +155,29 @@
   <h1>Latest News</h1>
 </div>
 
-<div class="card" style="height:12rem;width: 100%;">
+<div class="card card-news" style="height:12rem;width: 100%;">
   <div class="row">
+    {% for news_article in news %}
     <div class="col-md-4">
-      <img class="card-img-top responsive" src="{% static 'img/destiny.jpg'%}" alt="Card image cap">
+      <img class="card-img-top responsive" src="{{news_article.news_pic.url}}" alt="Card image cap" style="height:100%;">
     </div>
   <div class="card-body news-body col-md-8">
     <a class="news-title" href="#">
-      <h5 class="card-title">Destiny</h5>
+      <h5 class="card-title">{{news_article.title}}</h5>
     </a>
-    <p class="date">Posted: 8 hours ago</p>
-    <p class="card-text">Destiny 2 is an online-only multiplayer first-person shooter video game developed by Bungie and published by Activision. It was released for PlayStation 4 and Xbox One on September 6, 2017, followed by a Microsoft Windows version the following month. It is the sequel to 2014's Destiny and its subsequent expansions.....</p>
+    <p class="date">{{news_article.post_date}}</p>
+    <p class="card-text">{{news_article.news|truncatechars:300 | safe }}.</p>
   </div>
+  {% endfor %}
 </div>
 </div>
 
 <br>
 
-<div class="card" style="height:12rem;width: 100%;">
+<div class="card card-news" style="height:12rem;width: 100%;">
   <div class="row">
     <div class="col-md-4">
-      <img class="card-img-top responsive" src="{% static 'img/justcause.jpg'%}" alt="Card image cap">
+      <img class="card-img-top responsive" src="{% static 'img/justcause.jpg'%}" alt="Card image cap" style="height:100%;">
     </div>
   <div class="card-body news-body col-md-8">
     <a class="news-title" href="#">
@@ -186,10 +191,10 @@
 
 <br>
 
-<div class="card" style="height:12rem;width: 100%;">
+<div class="card card-news" style="height:12rem;width: 100%;">
   <div class="row">
     <div class="col-md-4">
-      <img class="card-img-top responsive" src="{% static 'img/blackops4.jpg'%}" alt="Card image cap">
+      <img class="card-img-top responsive" src="{% static 'img/blackops4.jpg'%}" alt="Card image cap" style="height:100%;">
     </div>
   <div class="card-body news-body col-md-8">
     <a class="news-title" href="#">
@@ -245,11 +250,11 @@
 </table>
 
 <br><br>
-{% for game in games %}
+<!-- {% for game in games %}
   <h3>{{game.name}}</h3>
   <a href="{{game.document.url}}">Download</a>
   127.0.0.1:8000{{game.document.url}}
-{% endfor %}
+{% endfor %} -->
 
 
 
@@ -258,6 +263,7 @@
 
 
 <style>
+
 .landingpage{
   width:100%;
   height:1000px;
@@ -338,6 +344,10 @@
 .date{
   color:royalblue;
   line-height: 0;
+}
+.card-news{
+  background-color:aliceblue;
+
 }
 </style>
 {% endblock %}
