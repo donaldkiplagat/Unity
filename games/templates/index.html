@@ -28,78 +28,20 @@
   </div>
 
 <div class="row">
-  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-    <a href="#">
-      <div class="card card-game" style="width:18rem;height:25rem;">
-        <img class="card-img-top dark" src="{% static 'img/titanfall.jpg'%}" style="width:18rem;height:25rem;">
-        <div class="centered">
-          <h4 class="game-name">Titanfall 2</h4>
-        </div>
-      </div>
-    </a>
-
-  </div>
-
-  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-    <a href="#">
-      <div class="card card-game" style="width:18rem;height:25rem;">
-        <img class="card-img-top dark" src="{% static 'img/battlefield5.jpg'%}" style="width:18rem;height:25rem;">
-        <div class="centered text-center">
-          <h4 class="game-name">Battlefield 5</h4>
-        </div>
-      </div>
-    </a>
-  </div>
-
-  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-    <a href="#">
-      <div class="card card-game" style="width:18rem;height:25rem;">
-        <img class="card-img-top dark" src="{% static 'img/payback.jpg'%}" style="width:18rem;height:25rem;">
-        <div class="centered text-center">
-          <h4 class="game-name">NFS Payback</h4>
-        </div>
-      </div>
-    </a>
-  </div>
-</div>
-<br>
-
-<div class="row">
   {% for game in games%}
   <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-    <a href="#">
-      <div class="card card-game" style="width:18rem;height:25rem;">
+    <a href="/download/{{game.id}}">
+      <div class="card card-game" style="width:18rem;height:25rem;margin-bottom:25px;">
         <img class="card-img-top dark" src="{{game.game_cover.url}}" style="width:18rem;height:25rem;">
-        <div class="centered">
+        <div class="centered text-center">
           <h4 class="game-name">{{game.name}}</h4>
         </div>
       </div>
     </a>
-
   </div>
   {% endfor %}
 
-  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-    <a href="#">
-      <div class="card card-game" style="width:18rem;height:25rem;">
-        <img class="card-img-top dark" src="{% static 'img/mk.jpg'%}" style="width:18rem;height:25rem;">
-        <div class="centered text-center">
-          <h4 class="game-name">Mortal Kombat X</h4>
-        </div>
-      </div>
-    </a>
-  </div>
 
-  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-    <a href="#">
-      <div class="card card-game" style="width:18rem;height:25rem;">
-        <img class="card-img-top dark" src="{% static 'img/red.jpeg'%}" style="width:18rem;height:25rem;">
-        <div class="centered text-center">
-          <h4 class="game-name">Red Dead Redemption II</h4>
-        </div>
-      </div>
-    </a>
-  </div>
 
 </div>
 
@@ -155,56 +97,26 @@
   <h1>Latest News</h1>
 </div>
 
+{% for news_article in news %}
 <div class="card card-news" style="height:12rem;width: 100%;">
   <div class="row">
-    {% for news_article in news %}
     <div class="col-md-4">
       <img class="card-img-top responsive" src="{{news_article.news_pic.url}}" alt="Card image cap" style="height:100%;">
     </div>
   <div class="card-body news-body col-md-8">
-    <a class="news-title" href="#">
+    <a class="news-title" href="/view/article/{{news_article.id}}">
       <h5 class="card-title">{{news_article.title}}</h5>
     </a>
     <p class="date">{{news_article.post_date}}</p>
     <p class="card-text">{{news_article.news|truncatechars:300 | safe }}.</p>
   </div>
-  {% endfor %}
 </div>
 </div>
 
 <br>
+{% endfor %}
 
-<div class="card card-news" style="height:12rem;width: 100%;">
-  <div class="row">
-    <div class="col-md-4">
-      <img class="card-img-top responsive" src="{% static 'img/justcause.jpg'%}" alt="Card image cap" style="height:100%;">
-    </div>
-  <div class="card-body news-body col-md-8">
-    <a class="news-title" href="#">
-      <h5 class="card-title">Just Cause 4</h5>
-    </a>
-    <p class="date">Posted: 12 hours ago</p>
-    <p class="card-text">Just Cause 4 is an action-adventure game developed by Avalanche Studios and published by Square Enix. It is the fourth game in the Just Cause series and the sequel to 2015's Just Cause 3 and was released for Microsoft Windows, PlayStation 4, and Xbox One on December 4, 2018.....</p>
-  </div>
-</div>
-</div>
 
-<br>
-
-<div class="card card-news" style="height:12rem;width: 100%;">
-  <div class="row">
-    <div class="col-md-4">
-      <img class="card-img-top responsive" src="{% static 'img/blackops4.jpg'%}" alt="Card image cap" style="height:100%;">
-    </div>
-  <div class="card-body news-body col-md-8">
-    <a class="news-title" href="#">
-    <h5 class="card-title">Call of Duty: Black Ops 4</h5>
-  </a>
-  <p class="date">Posted: 2 days,8 hours ago</p>
-    <p class="card-text">Call of Duty: Black Ops 4 (stylized as Call of Duty: Black Ops IIII) is a multiplayer first-person shooter developed by Treyarch and published by Activision. It was released worldwide for Microsoft Windows, PlayStation 4, and Xbox One on October 12, 2018. It is a sequel to the 2015 game Call of Duty: Black Ops III, the fifth entry in the Black Ops sub-series, and the 15th installment in the Call of Duty series overall.....</p>
-  </div>
-</div>
-</div>
 
 
 <br>

@@ -10,6 +10,8 @@ urlpatterns=[
     url(r'^trailers',views.trailers, name='trailers'),
     url(r'^news',views.news, name='news'),
     url(r'^view/article/(\d+)',views.article,name='article'),
+    url(r'^download/(\d+)',views.game_download,name='game_download'),
+    url(r'^profile/(?P<username>\w{0,50})',views.profile,name='profile'),
 
 ]
 

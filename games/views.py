@@ -19,14 +19,15 @@ from rest_framework.views import APIView
 
 # Create your views here.
 def index(request):
-    games = Game.objects.all()
-    news = News.objects.all()
+    games = Game.objects.all()[:6]
+    news = News.objects.all()[:3]
 
     return render(request,'index.html',{"games":games,"news":news})
 
 def games(request):
+    games = Game.objects.all()[:6]
 
-    return render(request,'games.html')
+    return render(request,'games.html',{"games":games})
 
 def trailers(request):
     trailers = Game.objects.all()
@@ -34,8 +35,9 @@ def trailers(request):
     return render(request,'trailers.html',{'trailers':trailers})
 
 def news(request):
+    news = News.objects.all()
 
-    return render(request,'news.html')
+    return render(request,'news.html',{"news":news})
 
 @login_required(login_url='/accounts/login/')
 def article(request,id):
@@ -59,3 +61,16 @@ def article(request,id):
         form = CommentForm()
 
     return render(request,'article.html',{"form":form,"news":news,"comments":comments})
+
+
+def game_download(request,id):
+    game = Game.objects.get(id=id)
+
+    return render(request,'game_download.html',{"game":game})
+
+def profile(request,username):
+    current_user = request.user
+    user = User.objects.get(username=username)
+    profile = Profile.objects.get(username=user)
+
+    return render(request,'profile.html',{"profile":profile,"current_user":current_user})

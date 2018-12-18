@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load staticfiles %}
+{% load bootstrap3 %}
+
+
+{% block content %}
+
+<div class="container">
+  <div class="row top">
+    <div class="col-md-12"></div>
+  </div>
+
+
+  <div class="card" style="width: 70em;">
+    <h5 class="card-title">{{game.name}} Download</h5>
+    <img class="card-img-top" src="{{game.screenshot1.url}}" >
+    <div class="card-body">
+
+      <h5>Game Description</h5>
+
+    <p class="card-text">{{game.description | safe}}</p>
+
+    <h5>Technical Specifications of this Release</h5>
+    <p class="card-text">Language: {{game.language}}</p>
+    <p class="card-text">Developer: {{game.developer}}</p>
+
+    <img class="card-img-top" src="{{game.screenshot2.url}}" >
+
+    <h5>System Requirements of {{game.name}}</h5>
+
+    <p class="card-text">Operating System: {{game.operating_system}}</p>
+    <p class="card-text">CPU: {{game.CPU}}</p>
+    <p class="card-text">RAM: {{game.RAM}}</p>
+    <p class="card-text">Hard Disk Space: {{game.HDDspace}}</p>
+
+    <img class="card-img-top" src="{{game.screenshot3.url}}" >
+
+  </div>
+  <div class="card-footer text-center">
+    <p class="card-text">Click on the below button to start the download for {{game.name}}. It is the full and complete game.</p>
+    <a href="{{game.download.url}}">
+      <button class="btn btn-primary btn-lg ">Download</button>
+    </a>
+  </div>
+</div>
+
+</div>
+
+<style>
+.top{
+  margin-top: 10px;
+}
+h5{
+  font-size: 30px;
+  text-align: center;
+}
+h6{
+  text-align: center;
+}
+label{
+  display: none;
+}
+body{
+  color:black;
+}
+.card-text{
+  font-size: 20px;
+  text-align: center;
+}
+
+</style>
+{% endblock %}

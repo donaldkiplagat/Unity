@@ -12,105 +12,26 @@
   <h1>Latest News</h1>
 </div>
 
+{% for news_article in news %}
 <div class="card card-news" style="height:12rem;width: 100%;">
   <div class="row">
     <div class="col-md-4">
-      <img class="card-img-top responsive" src="{% static 'img/destiny.jpg'%}" alt="Card image cap" style="height:100%;">
+      <img class="card-img-top responsive" src="{{news_article.news_pic.url}}" alt="Card image cap" style="height:100%;">
     </div>
   <div class="card-body news-body col-md-8">
-    <a class="news-title" href="#">
-      <h5 class="card-title">Destiny</h5>
+    <a class="news-title" href="/view/article/{{news_article.id}}">
+      <h5 class="card-title">{{news_article.title}}</h5>
     </a>
-    <p class="date">Posted: 8 hours ago</p>
-    <p class="card-text">Destiny 2 is an online-only multiplayer first-person shooter video game developed by Bungie and published by Activision. It was released for PlayStation 4 and Xbox One on September 6, 2017, followed by a Microsoft Windows version the following month. It is the sequel to 2014's Destiny and its subsequent expansions.....</p>
+    <p class="date">{{news_article.post_date}}</p>
+    <p class="card-text">{{news_article.news|truncatechars:300 | safe }}.</p>
   </div>
 </div>
 </div>
 
 <br>
+{% endfor %}
 
-<div class="card card-news" style="height:12rem;width: 100%;">
-  <div class="row">
-    <div class="col-md-4">
-      <img class="card-img-top responsive" src="{% static 'img/justcause.jpg'%}" alt="Card image cap" style="height:100%;">
-    </div>
-  <div class="card-body news-body col-md-8">
-    <a class="news-title" href="#">
-      <h5 class="card-title">Just Cause 4</h5>
-    </a>
-    <p class="date">Posted: 12 hours ago</p>
-    <p class="card-text">Just Cause 4 is an action-adventure game developed by Avalanche Studios and published by Square Enix. It is the fourth game in the Just Cause series and the sequel to 2015's Just Cause 3 and was released for Microsoft Windows, PlayStation 4, and Xbox One on December 4, 2018.....</p>
-  </div>
-</div>
-</div>
 
-<br>
-
-<div class="card card-news" style="height:12rem;width: 100%;">
-  <div class="row">
-    <div class="col-md-4">
-      <img class="card-img-top responsive" src="{% static 'img/blackops4.jpg'%}" alt="Card image cap" style="height:100%;">
-    </div>
-  <div class="card-body news-body col-md-8">
-    <a class="news-title" href="#">
-    <h5 class="card-title">Call of Duty: Black Ops 4</h5>
-  </a>
-  <p class="date">Posted: 2 days,8 hours ago</p>
-    <p class="card-text">Call of Duty: Black Ops 4 (stylized as Call of Duty: Black Ops IIII) is a multiplayer first-person shooter developed by Treyarch and published by Activision. It was released worldwide for Microsoft Windows, PlayStation 4, and Xbox One on October 12, 2018. It is a sequel to the 2015 game Call of Duty: Black Ops III, the fifth entry in the Black Ops sub-series, and the 15th installment in the Call of Duty series overall.....</p>
-  </div>
-</div>
-</div>
-
-<br>
-
-<div class="card card-news" style="height:12rem;width: 100%;">
-  <div class="row">
-    <div class="col-md-4">
-      <img class="card-img-top responsive" src="{% static 'img/destiny.jpg'%}" alt="Card image cap" style="height:100%;">
-    </div>
-  <div class="card-body news-body col-md-8">
-    <a class="news-title" href="#">
-      <h5 class="card-title">Destiny</h5>
-    </a>
-    <p class="date">Posted: 8 hours ago</p>
-    <p class="card-text">Destiny 2 is an online-only multiplayer first-person shooter video game developed by Bungie and published by Activision. It was released for PlayStation 4 and Xbox One on September 6, 2017, followed by a Microsoft Windows version the following month. It is the sequel to 2014's Destiny and its subsequent expansions.....</p>
-  </div>
-</div>
-</div>
-
-<br>
-
-<div class="card card-news" style="height:12rem;width: 100%;">
-  <div class="row">
-    <div class="col-md-4">
-      <img class="card-img-top responsive" src="{% static 'img/justcause.jpg'%}" alt="Card image cap" style="height:100%;">
-    </div>
-  <div class="card-body news-body col-md-8">
-    <a class="news-title" href="#">
-      <h5 class="card-title">Just Cause 4</h5>
-    </a>
-    <p class="date">Posted: 12 hours ago</p>
-    <p class="card-text">Just Cause 4 is an action-adventure game developed by Avalanche Studios and published by Square Enix. It is the fourth game in the Just Cause series and the sequel to 2015's Just Cause 3 and was released for Microsoft Windows, PlayStation 4, and Xbox One on December 4, 2018.....</p>
-  </div>
-</div>
-</div>
-
-<br>
-
-<div class="card card-news" style="height:12rem;width: 100%;">
-  <div class="row">
-    <div class="col-md-4">
-      <img class="card-img-top responsive" src="{% static 'img/blackops4.jpg'%}" alt="Card image cap" style="height:100%;">
-    </div>
-  <div class="card-body news-body col-md-8">
-    <a class="news-title" href="#">
-    <h5 class="card-title">Call of Duty: Black Ops 4</h5>
-  </a>
-  <p class="date">Posted: 2 days,8 hours ago</p>
-    <p class="card-text">Call of Duty: Black Ops 4 (stylized as Call of Duty: Black Ops IIII) is a multiplayer first-person shooter developed by Treyarch and published by Activision. It was released worldwide for Microsoft Windows, PlayStation 4, and Xbox One on October 12, 2018. It is a sequel to the 2015 game Call of Duty: Black Ops III, the fifth entry in the Black Ops sub-series, and the 15th installment in the Call of Duty series overall.....</p>
-  </div>
-</div>
-</div>
 
 </div>
 

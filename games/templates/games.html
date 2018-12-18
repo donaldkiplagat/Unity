@@ -5,219 +5,30 @@
 {% block content %}
 
 <div class="container">
-  
+
 
 <br>
   <div class="text-center game-name">
     <h1>PC Games</h1>
   </div>
 
-<div class="row">
-  <div class="col-md-3">
-    <a href="#">
-      <div class="card card-game" style="width:16rem;height:20rem;">
-        <img class="card-img-top dark" src="{% static 'img/titanfall.jpg'%}" style="width:18rem;height:25rem;">
-        <div class="centered">
-          <h4 class="game-name">Titanfall 2</h4>
+  <div class="row">
+    {% for game in games%}
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+      <a href="/download/{{game.id}}">
+        <div class="card card-game" style="width:16rem;height:20rem;margin-bottom:25px;">
+          <img class="card-img-top dark" src="{{game.game_cover.url}}" style="width:18rem;height:25rem;">
+          <div class="centered text-center">
+            <h4 class="game-name">{{game.name}}</h4>
+          </div>
         </div>
-      </div>
-    </a>
-
+      </a>
+    </div>
+    {% endfor %}
   </div>
 
-  <div class="col-md-3">
-    <a href="#">
-      <div class="card card-game" style="width:16rem;height:20rem;">
-        <img class="card-img-top dark" src="{% static 'img/battlefield5.jpg'%}" style="width:18rem;height:25rem;">
-        <div class="centered text-center">
-          <h4 class="game-name">Battlefield 5</h4>
-        </div>
-      </div>
-    </a>
-  </div>
-
-  <div class="col-md-3">
-    <a href="#">
-      <div class="card card-game" style="width:16rem;height:20rem;">
-        <img class="card-img-top dark" src="{% static 'img/blackops4.jpg'%}" style="width:18rem;height:25rem;">
-        <div class="centered text-center">
-          <h4 class="game-name">Black Ops</h4>
-        </div>
-      </div>
-    </a>
-  </div>
-
-  <div class="col-md-3">
-    <a href="#">
-      <div class="card card-game" style="width:16rem;height:20rem;">
-        <img class="card-img-top dark" src="{% static 'img/payback.jpg'%}" style="width:18rem;height:25rem;">
-        <div class="centered text-center">
-          <h4 class="game-name">NFS Payback</h4>
-        </div>
-      </div>
-    </a>
-  </div>
 
 </div>
-<br>
-
-<div class="row">
-  <div class="col-md-3">
-    <a href="#">
-      <div class="card card-game" style="width:16rem;height:20rem;">
-        <img class="card-img-top dark" src="{% static 'img/titanfall.jpg'%}" style="width:18rem;height:25rem;">
-        <div class="centered">
-          <h4 class="game-name">Titanfall 2</h4>
-        </div>
-      </div>
-    </a>
-
-  </div>
-
-  <div class="col-md-3">
-    <a href="#">
-      <div class="card card-game" style="width:16rem;height:20rem;">
-        <img class="card-img-top dark" src="{% static 'img/battlefield5.jpg'%}" style="width:18rem;height:25rem;">
-        <div class="centered text-center">
-          <h4 class="game-name">Battlefield 5</h4>
-        </div>
-      </div>
-    </a>
-  </div>
-
-  <div class="col-md-3">
-    <a href="#">
-      <div class="card card-game" style="width:16rem;height:20rem;">
-        <img class="card-img-top dark" src="{% static 'img/blackops4.jpg'%}" style="width:18rem;height:25rem;">
-        <div class="centered text-center">
-          <h4 class="game-name">Black Ops</h4>
-        </div>
-      </div>
-    </a>
-  </div>
-
-  <div class="col-md-3">
-    <a href="#">
-      <div class="card card-game" style="width:16rem;height:20rem;">
-        <img class="card-img-top dark" src="{% static 'img/payback.jpg'%}" style="width:18rem;height:25rem;">
-        <div class="centered text-center">
-          <h4 class="game-name">NFS Payback</h4>
-        </div>
-      </div>
-    </a>
-  </div>
-
-</div>
-
-<br>
-
-<div class="text-center game-name">
-  <h1>Mobile Games</h1>
-</div>
-
-<div class="row">
-<div class="col-md-3">
-  <a href="#">
-    <div class="card card-game" style="width:16rem;height:20rem;">
-      <img class="card-img-top dark" src="{% static 'img/titanfall.jpg'%}" style="width:18rem;height:25rem;">
-      <div class="centered">
-        <h4 class="game-name">Titanfall 2</h4>
-      </div>
-    </div>
-  </a>
-
-</div>
-
-<div class="col-md-3">
-  <a href="#">
-    <div class="card card-game" style="width:16rem;height:20rem;">
-      <img class="card-img-top dark" src="{% static 'img/battlefield5.jpg'%}" style="width:18rem;height:25rem;">
-      <div class="centered text-center">
-        <h4 class="game-name">Battlefield 5</h4>
-      </div>
-    </div>
-  </a>
-</div>
-
-<div class="col-md-3">
-  <a href="#">
-    <div class="card card-game" style="width:16rem;height:20rem;">
-      <img class="card-img-top dark" src="{% static 'img/blackops4.jpg'%}" style="width:18rem;height:25rem;">
-      <div class="centered text-center">
-        <h4 class="game-name">Black Ops</h4>
-      </div>
-    </div>
-  </a>
-</div>
-
-<div class="col-md-3">
-  <a href="#">
-    <div class="card card-game" style="width:16rem;height:20rem;">
-      <img class="card-img-top dark" src="{% static 'img/payback.jpg'%}" style="width:18rem;height:25rem;">
-      <div class="centered text-center">
-        <h4 class="game-name">NFS Payback</h4>
-      </div>
-    </div>
-  </a>
-</div>
-
-</div>
-<br>
-
-<div class="row">
-<div class="col-md-3">
-  <a href="#">
-    <div class="card card-game" style="width:16rem;height:20rem;">
-      <img class="card-img-top dark" src="{% static 'img/titanfall.jpg'%}" style="width:18rem;height:25rem;">
-      <div class="centered">
-        <h4 class="game-name">Titanfall 2</h4>
-      </div>
-    </div>
-  </a>
-
-</div>
-
-<div class="col-md-3">
-  <a href="#">
-    <div class="card card-game" style="width:16rem;height:20rem;">
-      <img class="card-img-top dark" src="{% static 'img/battlefield5.jpg'%}" style="width:18rem;height:25rem;">
-      <div class="centered text-center">
-        <h4 class="game-name">Battlefield 5</h4>
-      </div>
-    </div>
-  </a>
-</div>
-
-<div class="col-md-3">
-  <a href="#">
-    <div class="card card-game" style="width:16rem;height:20rem;">
-      <img class="card-img-top dark" src="{% static 'img/blackops4.jpg'%}" style="width:18rem;height:25rem;">
-      <div class="centered text-center">
-        <h4 class="game-name">Black Ops</h4>
-      </div>
-    </div>
-  </a>
-</div>
-
-<div class="col-md-3">
-  <a href="#">
-    <div class="card card-game" style="width:16rem;height:20rem;">
-      <img class="card-img-top dark" src="{% static 'img/payback.jpg'%}" style="width:18rem;height:25rem;">
-      <div class="centered text-center">
-        <h4 class="game-name">NFS Payback</h4>
-      </div>
-    </div>
-  </a>
-</div>
-
-</div>
-
-
-
-
-
-</div>
-
 
 
 <style>

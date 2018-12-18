@@ -11,43 +11,13 @@
   <div class="text-center game-name">
     <h1>Game Trailers</h1>
   </div>
-  <div class="row">
-    <div class="col-col-md-6">
-      <!-- <h3 class="game-name">Battlefield 5</h3 class="game-name"> -->
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/fb1MR85XFOc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-
-    <div class="col-md-6">
-      <!-- <h3 class="game-name">Forza Horizon 4</h3 class="game-name"> -->
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/zJ477xAIlgU" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-    </div>
-
-  <div class="row">
-    <div class="col-md-6">
-      <!-- <h3 class="game-name">Titanfall 2</h3 class="game-name"> -->
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/N1vqjJRcCzg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-
-    <div class="col-md-6">
-      <!-- <h3 class="game-name">Mortal Kombat 11</h3 class="game-name"> -->
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/bxFoRCvEjUA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-    </div>
 
     <div class="row">
+      {% for trailer in trailers %}
       <div class="col-md-6">
-        <!-- <h3 class="game-name">Star Wars Battlefront II</h3 class="game-name"> -->
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/ZwWLns7-xN8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-
-      <div class="col-md-6">
-        {% for trailer in trailers %}
-        <!-- <h3 class="game-name">Halo 5</h3 class="game-name"> -->
         {{trailer.trailer|safe}}
-        <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/44oJi5w2Wjc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-        {% endfor %}
       </div>
+      {% endfor %}
     </div>
 
   </div>
