@@ -40,9 +40,6 @@
     </a>
   </div>
   {% endfor %}
-
-
-
 </div>
 
 <br>
@@ -119,6 +116,7 @@
 
 
 
+
 <br>
 <div class="text-center game-name">
   <h1>Downloads</h1>
@@ -127,7 +125,7 @@
 <table class="table table-hover table-dark">
   <thead>
     <tr>
-      <th scope="col">#</th>
+      <!-- <th scope="col">#</th> -->
       <th scope="col">Game</th>
       <th scope="col">Platform</th>
       <th scope="col">Category</th>
@@ -135,14 +133,16 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Fifa 19</td>
-      <td>PC,PS4,Xbox</td>
-      <td>Sports</td>
-      <td>Dec 1st,2018</td>
+    {% for game in games %}
+    <tr class='clickable-row' data-href='/download/{{game.id}}'>
+      <!-- <th scope="row">1</th> -->
+      <td>{{game.name}}</td>
+      <td>{{game.platforms.all|join:", "}}</td>
+      <td>{{game.categories.all|join:", "}}</td>
+      <td>{{game.post_date}}</td>
     </tr>
-    <tr>
+    {% endfor %}
+    <!-- <tr>
       <th scope="row">2</th>
       <td>Battlefied 5</td>
       <td>PC,Xbox</td>
@@ -156,10 +156,19 @@
       <td>PC,Xbox</td>
       <td>Action,Shooting Game,War</td>
       <td>Aug 15th,2018</td>
-    </tr>
+    </tr> -->
 
   </tbody>
 </table>
+
+<script  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" ></script>
+<script>
+$(document).ready(function($) {
+    $(".clickable-row").click(function() {
+        window.location = $(this).data("href");
+    });
+});
+</script>
 
 <br><br>
 <!-- {% for game in games %}
@@ -175,6 +184,10 @@
 
 
 <style>
+.table-row{
+cursor:pointer;
+}
+
 
 .landingpage{
   width:100%;
@@ -262,6 +275,7 @@
 
 }
 </style>
+
 {% endblock %}
 
 font-family: 'Saira', sans-serif;

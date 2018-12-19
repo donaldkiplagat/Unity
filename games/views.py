@@ -72,5 +72,10 @@ def profile(request,username):
     current_user = request.user
     user = User.objects.get(username=username)
     profile = Profile.objects.get(username=user)
+    user_type ="Developer"
+    try:
+        games = Game.objects.filter(developer=current_user)
+    except:
+        pass
 
-    return render(request,'profile.html',{"profile":profile,"current_user":current_user})
+    return render(request,'profile.html',{"profile":profile,"current_user":current_user,"user_type":user_type,"games":games})
