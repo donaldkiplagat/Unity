@@ -11,11 +11,19 @@ from django.http import JsonResponse
 import json
 from django.db.models import Q
 from django.contrib.auth.models import User
+import africastalking
 
 from rest_framework.response import Response
 from rest_framework.views import APIView
 # from .serializer import
 
+#Africa's Talking
+# Initialize SDK
+username = "sandbox"
+api_key = "e518a9411401a65a9a5ae4806f594ea2cac803620a60630cfec74098b1592dfd"
+africastalking.initialize(username, api_key)
+#Initialize a service - SMS
+sms = africastalking.SMS
 
 # Create your views here.
 def index(request):
@@ -64,7 +72,12 @@ def article(request,id):
 
 
 def game_download(request,id):
+    current_user = request.user
     game = Game.objects.get(id=id)
+
+    # Use the service synchronously
+    response = sms.send(f"Greetings {{current_user}}, Your payment for {{game.name}} has been processed. Thank you for dealing with us. Regards, Lekura Team",["+254706426472"])
+    print(response)
 
     return render(request,'game_download.html',{"game":game})
 
