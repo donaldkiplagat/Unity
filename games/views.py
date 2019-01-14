@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect
 from django.http import HttpResponse,Http404,HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
-from .models import Game,Profile,News,Comment
+from .models import Game,Profile,News,Comment,countries,categories,platforms
 from .email import *
 from .forms import CommentForm
 from decouple import config,Csv
@@ -15,7 +15,7 @@ import africastalking
 
 from rest_framework.response import Response
 from rest_framework.views import APIView
-# from .serializer import
+from .serializer import countriesSerializer,categoriesSerializer,platformsSerializer,GameSerializer,ProfileSerializer,NewsSerializer,CommentSerializer,UserSerializer
 
 #Africa's Talking
 # Initialize SDK
@@ -74,12 +74,13 @@ def article(request,id):
 def game_download(request,id):
     current_user = request.user
     game = Game.objects.get(id=id)
-
+    payment = 'No'
+    print(payment)
     # Use the service synchronously
     response = sms.send(f"Greetings {{current_user}}, Your payment for {{game.name}} has been processed. Thank you for dealing with us. Regards, Lekura Team",["+254706426472"])
     print(response)
 
-    return render(request,'game_download.html',{"game":game})
+    return render(request,'game_download.html',{"game":game,"payment":payment})
 
 def profile(request,username):
     current_user = request.user
@@ -92,3 +93,53 @@ def profile(request,username):
         pass
 
     return render(request,'profile.html',{"profile":profile,"current_user":current_user,"user_type":user_type,"games":games})
+
+
+
+class countriesList(APIView):
+    def get(self,request,format=None):
+        all_countries = countries.objects.all()
+        serializers = countriesSerializer(all_countries, many=True)
+        return Response(serializers.data)
+
+class categoriesList(APIView):
+    def get(self,request,format=None):
+        all_categories = categories.objects.all()
+        serializers = categoriesSerializer(all_categories, many=True)
+        return Response(serializers.data)
+
+class platformsList(APIView):
+    def get(self,request,format=None):
+        all_platforms = platforms.objects.all()
+        serializers = platformsSerializer(all_platforms, many=True)
+        return Response(serializers.data)
+
+class GamesList(APIView):
+    def get(self,request,format=None):
+        all_games = Game.objects.all()
+        serializers = GameSerializer(all_games, many=True)
+        return Response(serializers.data)
+
+class ProfileList(APIView):
+    def get(self,request,format=None):
+        all_profiles = Profile.objects.all()
+        serializers = ProfileSerializer(all_profiles, many=True)
+        return Response(serializers.data)
+
+class NewsList(APIView):
+    def get(self,request,format=None):
+        all_news = News.objects.all()
+        serializers = NewsSerializer(all_news, many=True)
+        return Response(serializers.data)
+
+class CommentList(APIView):
+    def get(self,request,format=None):
+        all_comments = Comment.objects.all()
+        serializers = CommentSerializer(all_comments, many=True)
+        return Response(serializers.data)
+
+class UsersList(APIView):
+    def get(self,request,format=None):
+        all_users = User.objects.all()
+        serializers = UserSerializer(all_users, many=True)
+        return Response(serializers.data)

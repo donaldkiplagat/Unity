@@ -10,6 +10,11 @@ Type=(
     ('Developer','Developer'),
 )
 
+Payment=(
+    ('Yes','Yes'),
+    ('No','No'),
+)
+
 # Create your models here.
 class countries(models.Model):
     countries= models.CharField(max_length=100)
@@ -47,6 +52,7 @@ class Game(models.Model):
     trailer = models.CharField(max_length=300)
     developer = models.ForeignKey(User,on_delete=models.CASCADE)
     post_date = models.DateTimeField(auto_now_add=True)
+    payment = models.CharField(max_length=15,choices=Payment,default='No')
 
     def __str__(self):
         return self.name

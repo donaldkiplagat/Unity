@@ -13,6 +13,15 @@ urlpatterns=[
     url(r'^download/(\d+)',views.game_download,name='game_download'),
     url(r'^profile/(?P<username>\w{0,50})',views.profile,name='profile'),
 
+    url(r'^api/countries/$',views.countriesList.as_view()),
+    url(r'^api/categories/$',views.categoriesList.as_view()),
+    url(r'^api/platforms/$',views.platformsList.as_view()),
+    url(r'^api/games/$',views.GamesList.as_view()),
+    url(r'^api/profiles/$',views.ProfileList.as_view()),
+    url(r'^api/news/$',views.NewsList.as_view()),
+    url(r'^api/comments/$',views.CommentList.as_view()),
+    url(r'^api/users/$',views.UsersList.as_view()),
+
 ]
 
 if settings.DEBUG:
