@@ -27,6 +27,6 @@ pytz==2018.6
 requests==2.21.0
 schema==0.6.8
 six==1.11.0
-urllib3==1.24.1
+urllib3==1.26.5
 Werkzeug==0.14.1
 whitenoise==4.1
